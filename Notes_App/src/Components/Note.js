@@ -1,7 +1,7 @@
-import {MdDeleteForever, MdPalette, MdFileCopy} from 'react-icons/md'
+import {MdDeleteForever, MdFileCopy} from 'react-icons/md'
 
 
-const Note = ({id, title, text, date, handleDeleteNote}) => {
+const Note = ({id, title, text, date, handleDeleteNote, handleCopyNote}) => {
     return (
         <div className='note'>
             <div className='note-content'>
@@ -13,9 +13,8 @@ const Note = ({id, title, text, date, handleDeleteNote}) => {
                     <small>{date}</small>
                 </div>
                 <div className='note-footer-options'>
-                    <MdPalette className='option-icon'/>
-                    <MdFileCopy className='option-icon' />
-                    <MdDeleteForever onClick={()=>handleDeleteNote(id)} className='option-icon' size='1.2rem'/>
+                    <MdFileCopy className='option-icon' title='Copy Note to Clipboard' onClick={()=>handleCopyNote(id)} />
+                    <MdDeleteForever className='option-icon' size='1.2rem' title='Delete Note' onClick={()=>handleDeleteNote(id)}/>
                 </div>
             </div>
         </div>
