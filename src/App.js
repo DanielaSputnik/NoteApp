@@ -6,18 +6,18 @@ import Header from './Components/Header';
 
 const App = () => {
   const [notes, setNotes] = useState([
-      {
-        id: nanoid(),
-        title: 'Why did the chicken cross the road?',
-        text: 'Because the dead return. Because light reverses. Because the sky is a gap. Because footsteps on the ceiling. Because footsteps in the basement. Because the grass doesn’t grow, or grows too much, or grows wrong. Because the dead return. That – that – is why the chicken crosses the road.',
-        date: '10/07/2021',
-      },
-      {
-        id: nanoid(),
-        title: "Biblo's Speech",
-        text: "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
-        date: '29/07/1954',
-      }
+    {
+      id: nanoid(),
+      title: 'Why did the chicken cross the road?',
+      text: 'Because the sky is a gap. Because footsteps on the ceiling. Because footsteps in the basement. Because the grass doesn’t grow, or grows too much, or grows wrong. Because the dead return. That – that – is why the chicken crosses the road.',
+      date: '10/07/2021',
+    },
+    {
+      id: nanoid(),
+      title: "Biblo's Speech",
+      text: "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
+      date: '29/07/1954',
+    }
   ]);
 
   const [searchText, setSearchText] = useState('');
@@ -45,7 +45,7 @@ const App = () => {
       date: date.toLocaleDateString()
     };
     const newNotes = [...notes, newNote];
-      setNotes(newNotes);
+    setNotes(newNotes);
   }
 
   const deleteNote = (id) => {
@@ -62,10 +62,10 @@ const App = () => {
 
   const Alert = ({ type, msg, removeAlert, list }) => {
     useEffect(() => {
-        const timeout = setTimeout(() => {
+      const timeout = setTimeout(() => {
         removeAlert();
-        }, 1000);
-        return () => clearTimeout(timeout);
+      }, 1000);
+      return () => clearTimeout(timeout);
     }, [list, removeAlert]);
     return <p className={`alert alert-${type}`}>{msg}</p>;
   };
@@ -75,9 +75,9 @@ const App = () => {
 
   return (
     <div className={`${darkMode && 'dark-mode'}`}>
-    <div className='container'>
+      <div className='container'>
         <Header handleToggleDarkMode={setDarkMode}
-          darkMode={darkMode}/>
+          darkMode={darkMode} />
         <Search handleSearchNote={setSearchText} />
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={notes} />}
         <NotesList
@@ -86,10 +86,10 @@ const App = () => {
           )}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
-          handleCopyNote={copyNote}/>
+          handleCopyNote={copyNote} />
       </div>
     </div>
-    );
+  );
 }
 
 
