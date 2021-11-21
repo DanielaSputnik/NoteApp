@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const AddNote = ({handleAddNote}) => {
     const [noteTitle, setNoteTitle] = useState('');
@@ -25,7 +25,6 @@ const AddNote = ({handleAddNote}) => {
                 }, 1000);
         }
     };
-    const sttext = 'texxxttt'
 
     return (<div className='note new'>
         <textarea

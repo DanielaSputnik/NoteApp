@@ -8,15 +8,15 @@ const App = () => {
   const [notes, setNotes] = useState([
       {
         id: nanoid(),
-        title: 'On Nature of Things',
-        text: 'Palko je velmi smutny. Dankan tiez.',
+        title: 'Why did the chicken cross the road?',
+        text: 'Because the dead return. Because light reverses. Because the sky is a gap. Because footsteps on the ceiling. Because footsteps in the basement. Because the grass doesn’t grow, or grows too much, or grows wrong. Because the dead return. That – that – is why the chicken crosses the road.',
         date: '10/07/2021',
       },
       {
         id: nanoid(),
-        title: 'Inconspicuous note',
-        text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. ',
-        date: '10/02/2021',
+        title: "Biblo's Speech",
+        text: "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
+        date: '29/07/1954',
       }
   ]);
 
@@ -25,14 +25,14 @@ const App = () => {
   const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('rat-react-notes-app-data'))
+    const savedNotes = JSON.parse(localStorage.getItem('MYnotes-app-data'))
     if (savedNotes) {
       setNotes(savedNotes);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('rat-react-notes-app-data', JSON.stringify(notes));
+    localStorage.setItem('MYnotes-app-data', JSON.stringify(notes));
   }, [notes])
 
   const addNote = (title, text) => {
@@ -66,7 +66,7 @@ const App = () => {
         removeAlert();
         }, 1000);
         return () => clearTimeout(timeout);
-    }, [list]);
+    }, [list, removeAlert]);
     return <p className={`alert alert-${type}`}>{msg}</p>;
   };
   const showAlert = (show = false, type = "", msg = "") => {
@@ -76,11 +76,11 @@ const App = () => {
   return (
     <div className={`${darkMode && 'dark-mode'}`}>
     <div className='container'>
-      <Header handleToggleDarkMode={setDarkMode}/>
+        <Header handleToggleDarkMode={setDarkMode}
+          darkMode={darkMode}/>
         <Search handleSearchNote={setSearchText} />
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={notes} />}
         <NotesList
-          notes={notes}
           notes={notes.filter((note) =>
             note.text.toLowerCase().includes(searchText)
           )}

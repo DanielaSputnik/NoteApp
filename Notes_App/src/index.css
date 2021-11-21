@@ -154,9 +154,13 @@ textarea {
   margin-bottom: 2rem;
 }
 
+.dark-mode .search{
+  background-color: #edededa6;
+}
+
 .search input{
   border: none;
-  background-color:#EDEDED;
+  background-color:transparent;
   width: 50rem;
 }
 
