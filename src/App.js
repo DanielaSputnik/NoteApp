@@ -8,15 +8,15 @@ const App = () => {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      title: 'Why did the chicken cross the road?',
-      text: 'Because the sky is a gap. Because footsteps on the ceiling. Because footsteps in the basement. Because the grass doesn’t grow, or grows too much, or grows wrong. Because the dead return. That – that – is why the chicken crosses the road.',
-      date: '10/07/2021',
+      title: "Bilbo's Speech",
+      text: "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
+      date: '29/07/1954',
     },
     {
       id: nanoid(),
-      title: "Biblo's Speech",
-      text: "I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.",
-      date: '29/07/1954',
+      title: 'Why did the chicken cross the road?',
+      text: 'Because the sky is a gap. Because footsteps on the ceiling. Because footsteps in the basement. Because the grass doesn’t grow, or grows too much, or grows wrong. Because the dead return. That – that – is why the chicken crosses the road.',
+      date: '10/07/2021',
     }
   ]);
 
